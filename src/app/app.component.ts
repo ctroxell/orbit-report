@@ -11,14 +11,12 @@ export class AppComponent {
   title = 'orbit-report';
   sourceList: Satellite[];
   displayList: Satellite[];
-
+  satellitesUrl: string = 'https://handlers.education.launchcode.org/static/satellites.json';
   constructor() {
     this.sourceList = [];
     this.displayList = [];
-
-    let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
  
-    window.fetch(satellitesUrl).then(function(response) {
+    window.fetch(this.satellitesUrl).then(function(response) {
        response.json().then(function(data) {
  
           let fetchedSatellites = data.satellites;
